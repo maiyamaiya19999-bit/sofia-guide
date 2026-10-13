@@ -132,6 +132,24 @@ tr:hover td{background:var(--wash);}
   .band{padding:56px 22px;}
   details.fold>summary .fold-hint{display:none;}
 }
+
+/* mobile: no horizontal movement */
+html,body{overflow-x:hidden;max-width:100%;}
+body{position:relative;}
+.hero{overflow:hidden;}
+.container{overflow-x:hidden;}
+table td,table th{word-break:break-word;overflow-wrap:anywhere;}
+@media screen and (max-width:768px){
+  .table-wrap{overflow:visible;}
+  table,table tbody,table tr,table td{display:block;width:100%;}
+  table tr.thead-row{display:none;}
+  table tr{border:1px solid var(--hair);margin:0 0 12px;background:#fff;}
+  table td{padding:9px 12px;border:none;border-bottom:1px solid var(--hair);}
+  table td:last-child{border-bottom:none;}
+  table td[data-label]:before{content:attr(data-label);display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--soft);margin-bottom:3px;}
+  .prompt-box__title{font-size:16px;letter-spacing:.02em;}
+  .scenario-card__num{letter-spacing:1px;}
+}
 </style></head><body>
 <nav class="nav">
   <a href="index.html" class="nav__logo"><span class="nav__brand">София</span></a>
@@ -1158,5 +1176,14 @@ tr:hover td{background:var(--wash);}
   <p class="tiny">Внутренний рабочий документ. Гипотезы требуют проверки на живых людях.</p>
 </footer>
 
+<script>
+document.querySelectorAll('table').forEach(function(t){
+  var rows=t.querySelectorAll('tr'); if(!rows.length) return;
+  var head=rows[0]; if(!head.querySelector('th')) return;
+  head.classList.add('thead-row');
+  var labels=Array.prototype.map.call(head.children,function(c){return c.textContent.trim();});
+  for(var i=1;i<rows.length;i++){Array.prototype.forEach.call(rows[i].children,function(td,j){ if(labels[j]) td.setAttribute('data-label',labels[j]); });}
+});
+</script>
 </body>
 </html>
