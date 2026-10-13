@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>София · Анализ аудитории и позиционирование</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Denistina';src:url('denistina.ttf') format('truetype');font-display:swap;}
+.hand{font-family:'Denistina',cursive;font-weight:400;font-style:normal;color:var(--bordo);text-transform:none;letter-spacing:0;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{overflow-x:hidden;max-width:100%;}
+:root{--milk:#FDFCF9;--ink:#262220;--body:#55504B;--soft:#948C83;--bordo:#710C04;--hair:#E9E4DC;--wash:#F7F3EC;--accent:#710C04;}
+body{font-family:'Inter',sans-serif;background:var(--milk);color:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased;}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 48px;border-bottom:1px solid var(--hair);position:sticky;top:0;background:rgba(253,252,249,.94);backdrop-filter:blur(6px);z-index:100;}
+.nav__logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.nav__logo img{height:28px;width:auto;}
+.nav__brand{font-family:'Libre Baskerville',serif;font-weight:700;font-size:17px;color:var(--ink);}
+.nav__logo-name{font-family:'DM Sans',sans-serif;font-style:italic;font-size:14px;color:var(--soft);}
+.container{max-width:860px;margin:0 auto;padding:0 28px;}
+
+.hero{padding:84px 0 72px;position:relative;text-align:center;}
+.hero-glow{position:absolute;width:520px;height:520px;left:50%;top:-120px;margin-left:-260px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#F6D9C2,#F2C4B4 45%,rgba(253,252,249,0) 72%);filter:blur(40px);opacity:.55;z-index:0;pointer-events:none;}
+.hero>*:not(.hero-glow){position:relative;z-index:1;}
+.badge{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bordo);margin-bottom:22px;}
+.hero h1{font-family:'Libre Baskerville',serif;font-weight:700;font-size:40px;line-height:1.3;color:var(--ink);text-transform:uppercase;letter-spacing:.035em;margin:0 auto 24px;max-width:18ch;}
+.hero h1 em{font-style:italic;color:var(--bordo);text-transform:none;letter-spacing:0;}
+.hero h1 .hand{font-size:1.45em;line-height:.9;}
+.hero__desc{font-size:17px;color:var(--body);max-width:56ch;margin:0 auto;}
+.hero__meta{font-family:'DM Sans',sans-serif;font-style:italic;font-size:13.5px;color:var(--soft);margin-top:22px;letter-spacing:.5px;}
+
+.intro-bold{font-family:'Libre Baskerville',serif;font-style:italic;font-size:20px;line-height:1.65;color:var(--ink);text-align:center;max-width:640px;margin:0 auto;padding:10px 0 18px;}
+.intro-text{font-size:15.5px;color:var(--body);max-width:640px;margin:0 auto;text-align:center;padding-bottom:56px;}
+
+.toc{max-width:640px;margin:0 auto 24px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:22px 0;}
+.toc__title{font-size:11.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bordo);margin-bottom:12px;text-align:center;}
+.toc a{display:flex;gap:16px;align-items:baseline;color:var(--ink);text-decoration:none;font-size:15px;padding:9px 0;border-bottom:1px solid var(--hair);}
+.toc a:last-child{border-bottom:none;}
+.toc a:hover{color:var(--bordo);}
+.toc a span{font-family:'Libre Baskerville',serif;font-style:italic;color:var(--bordo);min-width:34px;}
+
+.section-heading{font-family:'Libre Baskerville',serif;font-weight:700;font-size:27px;line-height:1.42;color:var(--ink);text-align:center;text-transform:uppercase;letter-spacing:.04em;padding:88px 0 40px;border-top:1px solid var(--hair);margin-top:40px;position:relative;}
+.section-heading span{display:block;font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-size:15px;letter-spacing:3px;color:var(--bordo);margin:0 0 14px;text-transform:uppercase;}
+.section-heading em{font-style:italic;color:var(--bordo);text-transform:none;letter-spacing:0;}
+
+.sub-heading{font-family:'Libre Baskerville',serif;font-weight:700;font-size:18.5px;line-height:1.5;color:var(--ink);text-transform:uppercase;letter-spacing:.045em;padding:48px 0 14px;}
+.mini-heading{font-family:'Libre Baskerville',serif;font-style:italic;font-size:16.5px;color:var(--bordo);padding:26px 0 8px;}
+.text{font-size:15.5px;color:var(--body);margin-bottom:16px;}
+.text strong{color:var(--ink);font-weight:600;}
+
+details.fold{border-top:1px solid var(--hair);}
+details.fold:last-of-type{border-bottom:1px solid var(--hair);}
+details.fold>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;}
+details.fold>summary::-webkit-details-marker{display:none;}
+details.fold>summary .sub-heading{padding:0;}
+details.fold>summary .fold-hint{font-family:'DM Sans',sans-serif;font-style:italic;font-size:13px;color:var(--soft);white-space:nowrap;}
+details.fold>summary::after{content:'+';font-family:'Libre Baskerville',serif;font-size:26px;color:var(--bordo);line-height:1;flex-shrink:0;}
+details.fold[open]>summary::after{content:'–';}
+details.fold>.fold-body{padding:4px 0 36px;}
+
+.highlight{background:var(--wash);padding:26px 30px;margin:28px 0;font-size:15.5px;line-height:1.8;color:var(--body);border-left:none;}
+.highlight strong{color:var(--ink);font-weight:600;}
+
+.quote{position:relative;padding:28px 0 28px 0;margin:0;border-bottom:1px solid var(--hair);font-family:'Inter',sans-serif;font-size:15px;line-height:1.85;color:var(--body);background:none;}
+.quote:last-child{border-bottom:none;}
+.quote-label{display:block;font-family:'Libre Baskerville',serif;font-style:normal;font-weight:700;font-size:16px;color:var(--ink);margin-bottom:10px;line-height:1.5;}
+.quote-label span{font-style:italic;font-weight:400;color:var(--bordo);margin-right:10px;}
+.quote-label+*{display:inline;}
+
+.scenario-card{border:1px solid var(--hair);padding:30px 34px;margin:18px 0;background:transparent;position:relative;transition:border-color .25s;}
+.scenario-card:hover{border-color:var(--bordo);}
+.scenario-card__num{font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:var(--bordo);margin-bottom:8px;text-transform:uppercase;}
+.scenario-card__title{font-family:'Libre Baskerville',serif;font-weight:700;font-size:18px;line-height:1.45;color:var(--ink);margin-bottom:18px;}
+.scenario-card__point{margin-bottom:12px;font-size:15px;line-height:1.75;}
+.scenario-card__point-label{font-family:'Libre Baskerville',serif;font-style:italic;font-size:15px;color:var(--bordo);margin-right:6px;}
+.scenario-card__point-text{color:var(--body);}
+.scenario-card__ending{font-family:'Libre Baskerville',serif;font-size:16px;font-style:italic;color:var(--ink);padding-top:16px;margin-top:16px;border-top:1px solid var(--hair);}
+.scenario-card__tip{background:var(--wash);padding:14px 18px;margin-top:16px;font-size:14px;color:var(--body);line-height:1.7;}
+.scenario-card__tip strong{color:var(--bordo);font-weight:600;}
+
+.guide-list{list-style:none;margin:10px 0 24px;}
+.guide-list li{font-size:15.5px;line-height:1.8;color:var(--body);padding:12px 0 12px 28px;position:relative;border-bottom:1px solid var(--hair);}
+.guide-list li:first-child{border-top:1px solid var(--hair);}
+.guide-list li::before{content:'◆';position:absolute;left:4px;top:16px;font-size:8px;color:var(--bordo);}
+.guide-list li strong{color:var(--ink);font-weight:600;}
+.sources li{font-size:14px;}
+.sources a{color:var(--body);}
+
+.headline-list{list-style:none;margin:10px 0 28px;}
+.headline-list li{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline;}
+.headline-list li:first-child{border-top:1px solid var(--hair);}
+.headline-num{font-family:'Libre Baskerville',serif;font-style:italic;font-size:16px;color:var(--bordo);min-width:34px;flex-shrink:0;}
+.headline-text{font-family:'Libre Baskerville',serif;font-size:16.5px;line-height:1.6;color:var(--ink);font-weight:700;}
+.headline-text small{display:block;font-family:'Inter',sans-serif;font-size:14.5px;color:var(--body);font-weight:400;margin-top:6px;line-height:1.7;}
+
+.prompt-box{border:1px solid var(--bordo);outline:1px solid var(--bordo);outline-offset:5px;padding:36px 40px;margin:36px 6px;background:var(--milk);}
+.prompt-box__title{font-family:'Libre Baskerville',serif;font-weight:700;font-size:19px;line-height:1.45;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+.prompt-box__subtitle{font-family:'DM Sans',sans-serif;font-style:italic;font-size:13px;color:var(--soft);margin-bottom:18px;}
+.prompt-box__text{font-size:15.5px;line-height:1.85;color:var(--body);}
+
+.table-wrap{overflow-x:auto;margin:16px 0 32px;}
+table{width:100%;border-collapse:collapse;font-size:14.5px;}
+th,td{text-align:left;padding:14px 14px;border-bottom:1px solid var(--hair);vertical-align:top;line-height:1.65;}
+th{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--bordo);border-bottom:1px solid var(--bordo);background:none;text-transform:none;letter-spacing:0;}
+td{color:var(--body);}
+td strong{color:var(--ink);font-weight:600;}
+tr:hover td{background:var(--wash);}
+
+.band p{max-width:56ch;margin:0 auto;font-size:15.5px;line-height:1.8;}
+
+.final{max-width:660px;margin:96px auto 0;border:1px solid var(--bordo);outline:1px solid var(--bordo);outline-offset:5px;padding:52px 48px;text-align:center;}
+.final__lead{font-size:11.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bordo);margin-bottom:16px;}
+.final__title{font-family:'Libre Baskerville',serif;font-weight:700;font-size:24px;line-height:1.5;color:var(--ink);text-transform:uppercase;letter-spacing:.05em;margin-bottom:18px;}
+.final__title .hand{font-size:1.3em;line-height:1;}
+.final__text{font-size:15.5px;line-height:1.85;color:var(--body);}
+.footer-note{font-family:'Libre Baskerville',serif;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-align:center;padding:64px 24px 0;}
+.footer-note em{font-style:italic;color:var(--bordo);text-transform:none;letter-spacing:0;}
+.footer{text-align:center;padding:40px 24px 64px;color:var(--soft);font-size:12.5px;line-height:2;}
+.footer .tiny{font-size:12.5px;color:var(--soft);max-width:52ch;margin:0 auto;}
+
+@media screen and (max-width:768px){
+  .nav{padding:16px 20px;}
+  .nav__brand{display:none;}
+  .hero{padding:56px 0 48px;}
+  .hero h1{font-size:28px;}
+  .section-heading{font-size:21px;padding:64px 0 30px;}
+  .sub-heading{font-size:16px;}
+  .scenario-card{padding:22px 20px;}
+  .prompt-box{padding:26px 22px;}
+  th,td{padding:10px 8px;font-size:13.5px;}
+  .band{padding:56px 22px;}
+  details.fold>summary .fold-hint{display:none;}
+}
+</style></head><body>
+<nav class="nav">
+  <a href="index.html" class="nav__logo"><span class="nav__brand" style="font-style:italic">С</span><span class="nav__brand">София</span></a>
+  <span class="nav__logo-name">анализ аудитории и позиционирование · октябрь 2026</span>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="badge">Исследование · внутренний документ</div>
+  <h1>Моя аудитория: <span class="hand">два сегмента</span>, их боли, страхи и то, что я им на самом деле продаю</h1>
+  <p class="hero__desc">Рабочий документ под мой блог и первые продукты. Кто у меня будет покупать, что у них болит, чего они боятся по вечерам, чего хотят вместо, как уже пытались решить и почему не вышло, что скажут мне на созвоне и что при этом подумают. В конце позиционирование: кто я, чью проблему решаю, как, за сколько и к чему привожу.</p>
+  <p class="hero__meta">октябрь 2026 · гипотезы до проверки на живых людях</p>
+</section>
+
+<p class="intro-bold">Всё, что здесь написано, это мои гипотезы. Они собраны из шести лет в инфобизе, из того, что я вижу в проектах изнутри (включая проект на 7,5 млн подписчиков), из моей распаковки, базы экспертности и исследования рынка на октябрь 2026. Но это пока не данные о людях, которые заплатили мне.</p>
+<p class="intro-text">И тут у меня, если честно, слабое место сильнее, чем у любого эксперта с блогом: у меня блога ещё нет, а значит нет ни директа, ни комментариев, ни анкет, с которыми можно сверить формулировки. Поэтому я делаю то, что сама советую клиентам, когда данных мало: сначала интуиция (опыт плюс насмотренность плюс стратегия), потом быстрый дешёвый тест. Пять-семь коротких разговоров с экспертами из моего окружения, которые зарабатывают нестабильно, и первые бесплатные разборы. Где совпало, беру в тексты дословно, где нет, переписываю. Вопросы для этих разговоров в разделе 11.</p>
+
+<div class="toc">
+  <div class="toc__title">Содержание</div>
+  <a href="#s01"><span>01.</span>Что сейчас происходит на рынке</a>
+  <a href="#s02"><span>02.</span>Два сегмента, кого не беру и мост между ними</a>
+  <a href="#s03"><span>03.</span>Сегмент 1: эксперт, у которого то густо, то пусто</a>
+  <a href="#s04"><span>04.</span>Сегмент 2: проект, который упёрся в потолок запусков</a>
+  <a href="#s05"><span>05.</span>Общее для обоих: тайные желания, мотивы, триггеры</a>
+  <a href="#s06"><span>06.</span>Чего они хотят вместо и точка Б</a>
+  <a href="#s07"><span>07.</span>Как они пытаются решить это сами, и почему становится хуже</a>
+  <a href="#s08"><span>08.</span>Возражения на созвоне: что говорит и что думает</a>
+  <a href="#s09"><span>09.</span>Моя тема: регулярные деньги вместо запусков. И где здесь ИИ</a>
+  <a href="#s10"><span>10.</span>Позиционирование</a>
+  <a href="#s11"><span>11.</span>Что делать до первого поста и как проверить всё это дёшево</a>
+  <a href="#s12"><span>12.</span>Источники</a>
+</div>
+
+<!-- ============ 01 ============ -->
+<h2 class="section-heading" id="s01"><span>01</span>Что сейчас происходит <em>на рынке</em></h2>
+
+<p class="text">Мой главный тезис про рынок я сформулировала ещё на распаковке: инфобиз жив, рынок жив, большие деньги в нём есть. Просто зарабатывать стало сложнее: люди дольше выбирают, кризиса больше, касаний нужно больше. Всё, что я проверила по источникам на октябрь 2026, этот тезис подтверждает, причём жёстче, чем мне бы хотелось. Вот картина.</p>
+
+<h3 class="sub-heading">Площадки</h3>
+<ul class="guide-list">
+  <li><strong>Инст.</strong> Реклама и самореклама запрещены с 1 сентября 2025 (ФЗ №72). Штрафы для физлиц пока маленькие, до 2.500₽, для ИП 4–20 тысяч, для юрлиц 100–500 тысяч, но первые штрафы блогерам уже выписаны. Экспертный контент без призывов к покупке не запрещён, а цены, скидки и «ссылка на оплату» это серая зона. По оценкам, через VPN заходят 20–30 млн человек в месяц, то есть аудитория там есть, но продавать «в лоб» в сторис уже нельзя. Для моей темы это подарок: закрытые продажи через Telegram, анкеты и разборы, о которых я говорю шесть лет, теперь нужны всем, а не только тем, кто устал от сторис.</li>
+  <li><strong>Telegram.</strong> С 10 февраля 2026 официальное замедление, в марте-апреле у части провайдеров доходило до полной блокировки, с середины апреля частично вернулся, но нестабильно, и проблемы в регионах есть до сих пор. Официальной блокировки нет, но «работает через раз» стало нормой. Это значит одно: сидеть на одной площадке нельзя, а своя база (контакты, анкеты, предзапись) стоит дороже любых подписчиков.</li>
+  <li><strong>Белые списки и отключения мобильного интернета.</strong> С мая 2025 в регионах отключают мобильный интернет, и работает «белый список» Минцифры: Госуслуги, банки, маркетплейсы, VK, MAX. Инсты и Telegram там нет. Edtech-компании уже писали, что весной 2026 воронки просели именно из-за доступа. Часть моей аудитории физически не дотягивается до блога в случайные дни. Поэтому путь к покупке должен быть коротким, с несколькими входами, а не одним эфиром в среду в 19:00.</li>
+  <li><strong>MAX.</strong> Десятки миллионов пользователей в месяц, он в белых списках, но массовая аудитория экспертных каналов туда пока не перешла. Смотрю, не строю.</li>
+</ul>
+
+<h3 class="sub-heading">Регулирование</h3>
+<ul class="guide-list">
+  <li><strong>Реестр блогеров от 10.000 подписчиков</strong> работает. Без регистрации запрещены реклама, донаты и репосты. Для моих клиентов из сегмента 2 это уже обязательная рутина.</li>
+  <li><strong>Инфобизнес.</strong> В Думе несколько лет лежит законопроект об уведомительном порядке для курсов по бизнесу, финансам и психологии, рабочая группа обсуждает запрет «необоснованных гарантий», Рособрнадзор предлагает лицензии и реестр. Принято пока ничего не было, но направление одно, и оно совпадает с моей собственной позицией из базы экспертности: <strong>обещание дохода становится юридическим риском.</strong> Сильный оффер без «гарантированного миллиона» перестаёт быть этикой и становится требованием.</li>
+</ul>
+
+<h3 class="sub-heading">Деньги</h3>
+<ul class="guide-list">
+  <li>63% блогеров зарабатывают до 250.000₽ в месяц, от миллиона меньше 5%. До 10.000 подписчиков реклама это 5–15 тысяч в месяц, и в основном бартером. То есть для эксперта с маленьким блогом единственный источник денег это свой продукт или услуга. Ровно то, с чем я работаю.</li>
+  <li>Рекламные бюджеты в первом квартале 2026 упали на 25–30%, 45% блогеров сказали, что доход упал. По данным GetCourse, выручка инфобиза в 2025 снизилась, средний чек упал, старые каналы дают меньше лидов. Покупатель «считает деньги и требует конкретики».</li>
+  <li>Я вижу это же изнутри крупного проекта: холодная аудитория покупает, но только при коротком пути, понятном продукте и реальной цифре. Длинный прогрев ради прогрева перестал работать первым.</li>
+</ul>
+
+<h3 class="sub-heading">ИИ</h3>
+<ul class="guide-list">
+  <li><strong>Контент стал бесплатным, внимание дефицитом.</strong> Когда посты и ролики генерирует каждый, лента получает в сто раз больше контента при том же количестве глаз. Платформы маркируют ИИ-контент и режут монетизацию «неаутентичного». Объём перестал быть стратегией, и «15 сторис в день» окончательно антитренд.</li>
+  <li><strong>Знания обесценились до нуля.</strong> Ответить, составить план, объяснить можно бесплатно в Claude. Остаётся то, что ИИ не умеет: взять ответственность, посчитать экономику конкретного проекта, выбрать гипотезу и довести до денег. Моя профессия сдвигается туда же: не «написать прогрев», а решить, что вообще продавать, кому и через какую механику.</li>
+  <li><strong>Специалистов начинают искать через ИИ, а не через ленту.</strong> ИИ рекомендует тех, о ком есть структурированная информация: сайт, кейсы, отзывы. Эксперт, который живёт только в сторис, для ИИ невидим.</li>
+  <li><strong>ИИ не заменяет маркетолога, и это моя позиция, а не страх за профессию.</strong> «Искусственный интеллект заработает за тебя денег» это неправда. Если ты классный эксперт, он тебе очень сильно поможет, но разбираться в маркетинге всё равно придётся. Зато он снимает с эксперта всю рутину производства, и это я как раз хочу показывать в закулисье.</li>
+</ul>
+
+<div class="highlight"><strong>Если коротко.</strong> Подписчик как актив умер. Реклама для микроблогера умерла. Продажи «в лоб» в инсте запрещены, площадки нестабильны все сразу, обещания дохода скоро станут риском, а контент обесценен. Выживает тот, у кого есть продукт, своя база и система, которая приносит деньги каждый месяц, а не раз в квартал. Это буквально моя тема.</div>
+
+<!-- ============ 02 ============ -->
+<h2 class="section-heading" id="s02"><span>02</span>Два сегмента, <em>кого не беру</em> и мост между ними</h2>
+
+<p class="text">Я описываю сегмент по ситуации, а не по демографии, потому что «девушка 25–35, эксперт» это ни о чём: такая девушка с 300 подписчиками и такая же с командой из пяти человек покупают разные вещи и боятся разного. Сегменты у меня две, и у них одна общая болезнь, только в разном масштабе: деньги приходят всплесками, а системы нет.</p>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">СЕГМЕНТ 1</div>
+  <div class="scenario-card__title">Эксперт, у которого есть что продавать, а деньги то густо, то пусто</div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Кто.</span> <span class="scenario-card__point-text">Девушка-эксперт 25–38, психологи, коучи, нутрициологи, стилисты, маркетологи, преподаватели, мастера. Экспертность настоящая, услуга или небольшой продукт уже есть, от 1 до 30 тысяч подписчиков. Продаёт сама: консультации, сторис, иногда «запуск» на коленке. Доход 40–150 тысяч, скачет вдвое от месяца к месяцу.</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Главная боль.</span> <span class="scenario-card__point-text">«Делаю очень много, а денег столько же». «В сентябре очередь, в октябре тишина, и я не понимаю, от чего это зависит».</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Почему сильный.</span> <span class="scenario-card__point-text">Монетизировать уже есть что: продукт, аудитория, доверие. Поэтому результат от стратегии виден за месяц, а не через год. Это сегмент под консультацию и сопровождение, здесь основные деньги первых трёх месяцев.</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Слабое место.</span> <span class="scenario-card__point-text">Мои кейсы про крупные проекты и миллионы, а ей нужен кейс «эксперт с 3.000 подписчиков вышла на стабильные 150». Такой кейс у меня есть (600 тысяч при охватах 500), но он старый и его надо раскопать с цифрами.</span></div>
+</div>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">СЕГМЕНТ 2</div>
+  <div class="scenario-card__title">Проект, который упёрся в потолок запусков</div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Кто.</span> <span class="scenario-card__point-text">Эксперт или блогер с аудиторией от 30 тысяч, с продюсером, ассистентом или маленькой командой. Живёт от запуска к запуску: три месяца прогрев, вебинар, неделя продаж, выдох, и по новой. Оборот есть, 1–5 млн за запуск, прибыль непонятна, между запусками тишина и тревога.</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Главная боль.</span> <span class="scenario-card__point-text">«Каждый запуск как первый: я не знаю, сколько будет в этот раз». «Выгораю на прогреве, а потом три недели не могу смотреть на телефон».</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Почему сильный.</span> <span class="scenario-card__point-text">Мои сильнейшие кейсы бьют ровно сюда: ×3,5 от переупаковки, год продаж одной базе без трафика, 10 млн за первый месяц нового направления. Чек высокий, одна продажа сопровождения закрывает месяц. Платёжеспособность высокая.</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Слабое место.</span> <span class="scenario-card__point-text">Их мало, и они не ищут маркетолога в ленте, они ищут по рекомендации. Пока у меня нет блога и публичных кейсов, вход к ним только через нетворкинг. И я пока не могу показывать результаты текущего проекта.</span></div>
+</div>
+
+<h3 class="sub-heading">Кого я не беру, по крайней мере сейчас</h3>
+<ul class="guide-list">
+  <li><strong>Новичок без экспертности и продукта.</strong> «Хочу блог и чтобы он приносил деньги», а продавать нечего. Активов нет, монетизировать нечего, а я работаю с тем, что уже есть. Таким честно говорю: сначала навык и первые клиенты руками, потом ко мне. Эта аудитория массовая, но у меня для неё нет продукта, и перегретый рынок «заработка в интернете» это не моя лига.</li>
+  <li><strong>Продюсеры и маркетологи-коллеги.</strong> Им я могу быть полезна (я сама писала, что продюсерам наставник нужен не меньше, чем экспертам), и они часть моей аудитории в Telegram. Но это отдельный продукт и отдельный разговор. Сейчас не распыляюсь.</li>
+  <li><strong>«Хочу продавать пассивно и никогда не появляться».</strong> Без лица и без касаний в 2026 не продаёт ничего. Я про систему, которая работает без выгорания, а не без эксперта.</li>
+</ul>
+
+<div class="highlight"><strong>Мост С1 → С2.</strong> Это один и тот же человек в разные годы жизни. Эксперт, которая построила регулярные продажи на 150–300 тысяч, через год набирает команду и приходит к потолку запусков. А проект из С2, если копнуть, часто живёт по той же логике «продам тем, кто есть», только с нулями побольше. Поэтому тема у меня одна на обоих: <strong>из разовых всплесков в предсказуемые деньги каждый месяц</strong>. Вход через боль С1, она массовая и острая, и там мой чек 9.000 за консультацию. Основные деньги через сопровождение, и к нему приходят оба сегмента: С1 после первой консультации, С2 по рекомендации.</div>
+
+<div class="table-wrap">
+<table>
+  <tr><th></th><th>С1. Эксперт</th><th>С2. Проект</th></tr>
+  <tr><td>Главный смысл</td><td><strong>Безопасность</strong>, понятный доход каждый месяц</td><td><strong>Контроль</strong>, предсказуемость и прибыль, а не оборот</td></tr>
+  <tr><td>Сильнейшая боль</td><td>Делаю много, деньги те же</td><td>Каждый запуск как лотерея</td></tr>
+  <tr><td>Главное возражение</td><td>«У меня слишком мало подписчиков для системы»</td><td>«У нас уже есть продюсер / маркетолог»</td></tr>
+  <tr><td>Мой пруф</td><td>Средний: кейс 600 тысяч при охватах 500 надо раскопать</td><td><strong>Сильный</strong>: ×3,5, 10 млн, год продаж одной базе</td></tr>
+  <tr><td>Чего не хватает</td><td>Кейсы «маленький эксперт до → после»</td><td>Публичность и рекомендации</td></tr>
+  <tr><td>Готовность платить</td><td>Средняя, 9–40 тысяч</td><td><strong>Высокая</strong>, от 40 тысяч</td></tr>
+  <tr><td>Как приходит</td><td>Из контента и разбора</td><td>По рекомендации и нетворкингу</td></tr>
+</table>
+</div>
+<!-- ============ 03 ============ -->
+<h2 class="section-heading" id="s03"><span>03</span>Сегмент 1: эксперт, у которого <em>то густо, то пусто</em></h2>
+
+<details class="fold"><summary><h3 class="sub-heading">Боли по убыванию</h3><span class="fold-hint">12 монологов, раскрыть</span></summary><div class="fold-body">
+<p class="text">Порядок это моя оценка из того, что я слышу от экспертов в проектах и в личных разговорах, и проверяется он одним опросом. Все монологи написаны так, как будто девочка рассказывает это подруге за бокалом, когда уже можно не держать лицо.</p>
+
+<div class="quote"><span class="quote-label"><span>1.</span>Делаю очень много, а денег столько же</span>«Знаешь, что меня бесит больше всего? Я пашу. Я реально пашу. Сторис каждый день, посты, эфир в четверг, два вебинара за осень, консультации с утра до вечера. И знаешь сколько у меня вышло в октябре? Столько же, сколько в марте. Столько же, сколько год назад, когда я ничего этого не делала. Я сижу вечером, смотрю на эту цифру и думаю: а что, если я просто бегу на месте? Я уже не понимаю, что из этого работает, а что я делаю просто потому что все делают. Мне кажется, если я остановлюсь на неделю, вообще ничего не изменится. И это, если честно, самое страшное».</div>
+
+<div class="quote"><span class="quote-label"><span>2.</span>В сентябре очередь, в октябре тишина, и я не знаю, почему</span>«У меня как погода. В сентябре я отказывала людям, представляешь, у меня запись была на три недели вперёд, я думала, всё, наконец-то пошло. А в октябре... ноль. Ну то есть двое пришли по старым. Я ничего не меняла! Я так же веду, так же пишу. И я не понимаю, от чего это зависит. Если бы я понимала, я бы хоть что-то могла сделать. А так я просто сижу и жду, как будто от того, что я открою директ в двадцатый раз, кто-то напишет. Я не могу планировать вообще ничего: ни отпуск, ни курс для себя, ни даже стоматолога, потому что не знаю, будут ли деньги через месяц».</div>
+
+<div class="quote"><span class="quote-label"><span>3.</span>Продаю только собой, и больше часов в сутках не станет</span>«Я посчитала. Если я хочу двести в месяц, мне надо провести сорок консультаций. Сорок! Это по две в день без выходных. И что, я тогда когда контент делаю, когда живу? А если я подниму цену, то боюсь, что вообще никто не придёт. Получается, я упёрлась в собственное тело. У меня нет ничего, что продавалось бы без меня. Ни гайда, ни группы, ни курса. Я хотела сделать, но то одно, то другое, и вот уже год я «вот-вот сделаю». А пока я продаю себя по часам, как парикмахер, только парикмахер хоть знает свою запись на месяц вперёд».</div>
+
+<div class="quote"><span class="quote-label"><span>4.</span>Не умею продавать и чувствую себя навязчивой</span>«Вот смотри, я пишу пост про консультацию, и у меня рука не поднимается написать цену. Я пишу «подробности в директ», а потом в директе ещё десять сообщений извиняюсь, что оно стоит денег. Мне кажется, что я впариваю. Что люди подумают: ну вот, ещё одна инфоцыганка. И самое смешное, что когда ко мне приходят, я реально помогаю, у меня результаты есть, девочки мне потом пишут такие сообщения, что я плачу. А продать это я не могу. Как будто две разные меня: одна специалист, а вторая сидит и боится попросить деньги».</div>
+
+<div class="quote"><span class="quote-label"><span>5.</span>«Я подумаю» и «дорого», и я не знаю, что на это ответить</span>«У меня в директе лежит восемь человек, которые «подумают». Восемь! Это сорок тысяч, если бы они купили. Я им написала раз, потом ещё раз через неделю, а дальше что? Ну не буду же я их добивать. Одна написала «дорого», и я сразу предложила рассрочку, а она всё равно пропала. Я не понимаю, что они на самом деле имеют в виду. Может, я плохо объяснила, может, им не ко мне, может, они просто вежливо слились. И я каждый раз это проглатываю, как будто это лично про меня».</div>
+
+<div class="quote"><span class="quote-label"><span>6.</span>Пробовала прогревы и вебинары, пришло три человека</span>«Я делала всё по методичке. Купила курс по запускам, три недели грела сторис по схеме, собирала на бесплатный вебинар. Ты знаешь, сколько пришло? Одиннадцать. Из них купила одна, и то моя бывшая клиентка, которая и так бы купила. Три недели жизни, я перед этим вебинаром не спала, у меня презентация была на сорок слайдов. И всё. Я потом неделю вообще ничего не могла постить, мне было стыдно. Как будто я анонсировала праздник, а никто не пришёл. Больше я в это не полезу, мне кажется, это работает только у тех, у кого уже сто тысяч».</div>
+
+<div class="quote"><span class="quote-label"><span>7.</span>Продюсер не помог, деньги ушли</span>«Я заплатила продюсеру сто двадцать тысяч. Она обещала запуск на миллион. Мы сделали сайт, бота, прогрев, всё красиво. Продали на двести восемьдесят. Минус её процент, минус таргет, минус дизайнер, я вышла в небольшой плюс, но нервов потратила на год вперёд. А потом она сказала, что «аудитория не прогрелась» и ушла в другой проект. И я осталась с ботом, который никто не ведёт, и с ощущением, что меня развели. Теперь я вообще никому не верю, кто говорит «я сделаю вам продажи»».</div>
+
+<div class="quote"><span class="quote-label"><span>8.</span>Стыдно за свои цифры</span>«Я никому не говорю, сколько я зарабатываю. Подругам занижаю, потому что они в найме и думают, что я тут миллионы гребу. В сторис завышаю, потому что ну как эксперт может написать «в этом месяце вышло 60». Я живу в двух версиях цифр, и настоящая только у меня в заметках. И вот сижу я на нетворкинге, все такие «у меня запуск, у меня поток», а я думаю: мне даже показать нечего. Телеграм-канал на 400 человек и всё. Я как бы есть, но меня как бы нет».</div>
+
+<div class="quote"><span class="quote-label"><span>9.</span>Хороший специалист, а зарабатываю меньше тех, кто хуже</span>«Вот есть девочка в моей нише, она училась полгода, у меня за плечами университет и восемь лет практики. У неё поток, у неё команда, у неё цены в три раза выше моих. И я смотрю на её контент и понимаю, что она несёт половину ерунды. Но у неё покупают! А у меня, с моими результатами, с моими отзывами, нет. И я не понимаю, что я делаю не так. Иногда думаю, что дело в том, что она умеет себя продать, а я нет. А иногда думаю: может, я себе льщу, и дело во мне».</div>
+
+<div class="quote"><span class="quote-label"><span>10.</span>Нет времени на контент, а без контента нет клиентов</span>«Я встаю в семь, у меня первая клиентка в девять, последняя в восемь вечера. Между ними я пытаюсь снять сторис в машине и выгляжу как зомби. Пост я пишу в одиннадцать ночи, переписываю первую строчку десять раз и не публикую. И я понимаю, что без контента никто не придёт, но у меня физически нет на него жизни. Все говорят «делегируй», а кому? Ассистент стоит сорок тысяч, а я не знаю, будут ли они у меня в следующем месяце».</div>
+
+<div class="quote"><span class="quote-label"><span>11.</span>Боюсь, что всё это в один день исчезнет</span>«Я живу с ощущением, что у меня нет ничего своего. Инст могут заблокировать окончательно, Телеграм уже работает через раз, охваты могут упасть просто так. У меня нет базы, у меня нет сайта, у меня есть аккаунт, который мне не принадлежит. И если завтра его не станет, то я опять с нуля, как семь лет назад. Я понимаю, что надо что-то строить вне площадки, но что и как, я не знаю, и всё время это откладываю, потому что сегодня надо снять сторис».</div>
+
+<div class="quote"><span class="quote-label"><span>12.</span>Не знаю, какую цену ставить и как её обосновать</span>«Я поставила 5.000 за консультацию и мне кажется, это и дорого, и дёшево одновременно. Дорого, потому что у меня никто не покупает. Дёшево, потому что коллеги берут 15. Когда меня спрашивают «а почему столько», я начинаю мямлить про опыт и образование, а внутри думаю: и правда, почему? Я не умею объяснить, за что человек платит. И мне кажется, пока я не научусь, ни одна цена не будет правильной».</div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Желания</h3><span class="fold-hint">явные, раскрыть</span></summary><div class="fold-body">
+<ul class="guide-list">
+  <li>«Хочу понимать, откуда придут деньги в следующем месяце». Самое частое и самое честное.</li>
+  <li>«Хочу, чтобы клиенты приходили сами, а я не бегала за каждым».</li>
+  <li>«Хочу продавать, не чувствуя себя навязчивой».</li>
+  <li>«Хочу понятный план на месяц: что делать, в каком порядке, и чтобы это давало результат».</li>
+  <li>«Хочу что-то, что продаётся без моего участия: гайд, группу, мини-курс».</li>
+  <li>«Хочу поднять цену и не бояться, что все разбегутся».</li>
+  <li>«Хочу, чтобы кто-то посмотрел на мой блог со стороны и сказал, что не так».</li>
+  <li>«Хочу не зависеть от одной площадки».</li>
+  <li>«Хочу перестать делать всё подряд и делать только то, что работает».</li>
+  <li>«Хочу, чтобы мне было что показать: на нетворкинге, маме, самой себе».</li>
+</ul>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Тайные желания</h3><span class="fold-hint">о чём думает, но не говорит, раскрыть</span></summary><div class="fold-body">
+<ul class="guide-list">
+  <li><strong>Хочу, чтобы меня признали.</strong> Не подписчики, а коллеги по нише и те, кто когда-то сказал «блогерство это несерьёзно». Чтобы к ней приходили за мнением, а не только за услугой.</li>
+  <li><strong>Хочу продавать дорого, даже если опыта меньше, чем у звёзд ниши.</strong> И стыдно за эту мысль, потому что «настоящий эксперт так не думает».</li>
+  <li><strong>Хочу, чтобы кто-то взял ответственность за мои деньги.</strong> Не советом, а «вот план, иди по нему, если не сработает, я с тобой». Устала решать всё сама.</li>
+  <li><strong>Хочу доказать той версии себя, которая два года «вот-вот начнёт».</strong> И подруге, у которой «всё легко».</li>
+  <li><strong>Хочу, чтобы было легко.</strong> Не как у инфоцыган, а чтобы наконец перестать выжимать из себя контент через силу. Разрешение делать меньше.</li>
+  <li><strong>Хочу уйти от «доброй девочки, которая помогает».</strong> Стать той, кому платят много и спокойно, и не чувствовать себя при этом предательницей.</li>
+</ul>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Страхи: о чём ураган мыслей по вечерам</h3><span class="fold-hint">10 монологов, раскрыть</span></summary><div class="fold-body">
+
+<div class="quote"><span class="quote-label"><span>1.</span>А если в следующем месяце тоже ноль</span>«Это первое, о чём я думаю, когда ложусь. Я считаю: аренда, кредит, садик. Если ноябрь будет как октябрь, я снимаю с подушки, а подушки осталось на два месяца. И я лежу и думаю: а дальше что? Обратно в найм? Это всё, значит, было зря?»</div>
+
+<div class="quote"><span class="quote-label"><span>2.</span>Я не эксперт, я просто хорошо притворяюсь</span>«Вот я беру 7.000 за час, а что, если кто-то из клиентов скажет: а кто ты вообще такая? У меня нет кейсов «с нуля до миллиона», у меня есть девочки, которым стало лучше. Это считается? Иногда мне кажется, что все вокруг знают что-то, чего не знаю я, и однажды это вскроется».</div>
+
+<div class="quote"><span class="quote-label"><span>3.</span>Я сделаю продукт, и его никто не купит</span>«Я полгода хожу вокруг идеи курса. И знаешь, почему не делаю? Потому что пока я его не сделала, я не могу провалиться. А если сделаю и купят три человека, это будет значить, что я никому не нужна. Не маркетинг не сработал, а я. И это я уже не переживу».</div>
+
+<div class="quote"><span class="quote-label"><span>4.</span>Меня заблокируют и всё исчезнет</span>«Я каждое утро открываю инст с мыслью «а вдруг сегодня». Телеграм у меня полдня не грузил на прошлой неделе. И у меня нет ни одной базы, ни одного списка. Если их не станет, у меня не останется даже способа написать своим клиенткам».</div>
+
+<div class="quote"><span class="quote-label"><span>5.</span>Мне никогда не выйти из разовых консультаций</span>«Я вижу себя через пять лет: такая же, только старше, всё так же считаю консультации по штукам и всё так же не могу уехать в отпуск, потому что «нет записи, значит нет денег». Это не бизнес. Это такой же найм, только без отпускных».</div>
+
+<div class="quote"><span class="quote-label"><span>6.</span>Все вокруг меня обошли</span>«Я открываю ленту, и там: у этой запуск на два миллиона, у той команда, у третьей курс на Казань и Дубай. А у меня четыреста человек в канале. Мне кажется, что я проспала момент, когда надо было начинать, и теперь поезд ушёл».</div>
+
+<div class="quote"><span class="quote-label"><span>7.</span>Я опять потрачу деньги на обучение и ничего не изменится</span>«У меня три купленных курса, которые я не прошла до конца. Сто восемьдесят тысяч. И каждый раз я думала «вот это точно». И вот теперь я смотрю на чью-то консультацию за десять и думаю: а что, если это опять то же самое? Я уже не верю ни себе, ни им».</div>
+
+<div class="quote"><span class="quote-label"><span>8.</span>Если я начну продавать, меня разлюбят</span>«Я боюсь, что как только я начну говорить про деньги и цены, люди отпишутся. Что я перестану быть той, к кому приходят поплакать, и стану «ещё одной, которая продаёт». Мне кажется, меня любят за то, что я не такая».</div>
+
+<div class="quote"><span class="quote-label"><span>9.</span>Муж скажет «я же говорил»</span>«Он ничего не говорит, но я вижу, как он смотрит, когда я в одиннадцать ночи сижу над постом. Если я не вытяну это в деньги, я буду той, кто два года играла в блогера, пока он работал. И самое страшное, что я сама так думаю».</div>
+
+<div class="quote"><span class="quote-label"><span>10.</span>Я выгорю раньше, чем что-то получится</span>«Я уже не хочу открывать телефон. Я снимаю сторис через силу, я отвечаю в директ через силу. Если так будет ещё год, я просто брошу. И потом буду жалеть, что бросила за шаг до».</div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Последствия, если ничего не менять</h3><span class="fold-hint">12 карточек: сейчас, через 2–3 года, эмоции</span></summary><div class="fold-body">
+<p class="text">Здесь я специально не пугаю. Самое честное последствие звучит не как «всё рухнет», а как «всё останется так же, только рынок уедет вперёд, а ты останешься ниже». Вот так это выглядит по каждой боли.</p>
+
+<div class="scenario-card"><div class="scenario-card__num">1 · ДЕЛАЮ МНОГО, ДЕНЬГИ ТЕ ЖЕ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Каждый час контента стоит ей часа консультации, то есть 5–7 тысяч. Она тратит 15–20 часов в неделю на то, что не приносит ни одной заявки, и не знает этого, потому что не считает.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Контент станет бесплатным у всех, а её ручной контент будет стоить столько же часов. Разрыв между усилием и деньгами вырастет, а не сократится.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Бессмысленность. Злость на себя. «Я бегу на месте».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">2 · ТО ГУСТО, ТО ПУСТО</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Пустые месяцы она закрывает чем угодно: берёт неприятных клиентов, даёт скидки, работает по вечерам. Цена падает, усталость растёт.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Сарафан стареет, старые клиентки уходят в жизнь, а новых источников так и нет. Пустых месяцев становится больше, чем густых.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Тревога как фон. «Я живу как на чаевых».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">3 · ПРОДАЮ ТОЛЬКО СОБОЙ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Потолок посчитан и он равен количеству часов, которое она выдерживает без слёз. Отпуск равен нулю дохода.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Те, кто сделал продукт и базу в 2026, будут продавать ей же свои курсы. Она останется «исполнителем по часам» в нише, где часы дешевеют из-за ИИ.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Ловушка. «Это такой же найм, только без отпускных».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">4 · НЕ УМЕЮ ПРОДАВАТЬ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Каждая вторая заявка умирает в директе на этапе «подробности в личку». Она сама обесценивает услугу извинениями, и человек это чувствует.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Покупатель станет ещё осторожнее и будет требовать конкретики. Тот, кто не умеет назвать цену и результат, проиграет тому, кто умеет, при равной экспертности.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Стыд. Раздвоение: «я специалист» и «я не могу попросить деньги».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">5 · «Я ПОДУМАЮ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">В директе лежит на 30–50 тысяч тёплых людей, которых она не умеет вернуть, и каждый из них ощущается как личный отказ.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Тёплые некупившие это единственный дешёвый источник денег, когда трафик дорожает. Без привычки работать с ними она будет каждый раз покупать новых, которых станет меньше и дороже.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Обида. «Они просто вежливо слились».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">6 · ВЕБИНАР, НА КОТОРЫЙ ПРИШЛО ТРИ ЧЕЛОВЕКА</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">После провала она неделю не выходит в блог, и охваты проседают ещё сильнее. Один неудачный запуск отбрасывает на два месяца.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Она сделает вывод «запуски не работают» и вообще перестанет пробовать. А рынок уйдёт в короткие форматы и закрытые продажи, которые ей никто не показал.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Позор. «Анонсировала праздник, никто не пришёл».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">7 · ПРОДЮСЕР НЕ ПОМОГ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Минус 100–200 тысяч и бот, который никто не ведёт. И цинизм ко всем, кто говорит «я сделаю вам продажи», включая тех, кто реально умеет.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Недоверие станет её стратегией: всё сама, ничему не учиться, никого не нанимать. Это самый медленный путь из возможных.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">«Меня развели». Злость, которая мешает принять помощь.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">8 · СТЫДНО ЗА ЦИФРЫ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Две версии дохода: одна для подруг, другая для сторис. Ни одна не настоящая. Она не может ни попросить совета, ни показать результат.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Нетворкинг, который даёт лучших клиентов в её ценовом сегменте, так и останется закрытым, потому что «мне нечего показать».</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Одиночество. «Я как бы есть, но меня как бы нет».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">9 · ХУДШИЕ ЗАРАБАТЫВАЮТ БОЛЬШЕ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Она тратит часы на чужие профили вместо своих, и каждый раз теряет день мотивации. Сравнение заменяет действие.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Разрыв вырастет, потому что у «худшей» уже есть база, продукт и система, а это сложные проценты. Через три года её не догнать даже с лучшей экспертностью.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Несправедливость и сомнение в себе одновременно.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">10 · НЕТ ВРЕМЕНИ НА КОНТЕНТ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Контент делается ночью, через силу, и выглядит соответственно. Клиентки видят уставшего человека, который сам не справляется, и это противоречит тому, что она продаёт.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Конкурентки будут выпускать в пять раз больше за то же время с помощью ИИ, и её ручной режим станет роскошью, которую она не может себе позволить.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Истощение. Вина за то, что «опять не вела».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">11 · ВСЁ МОЖЕТ ИСЧЕЗНУТЬ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Всё, что она построила, живёт в аккаунтах, которые ей не принадлежат. Ни списка, ни базы, ни сайта. Один сбой Telegram, и она не может написать своим же клиенткам.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Площадок будет ещё меньше и они будут ещё менее стабильными. Выживет та, у кого есть база вне платформы. Это уже не гипотеза, это 2026 год.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Беззащитность. «Опять с нуля, как семь лет назад».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">12 · НЕ ЗНАЮ ЦЕНУ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Цена стоит не на ценности, а на страхе. Она недополучает в два-три раза от того, что рынок уже платит за такое же, и при этом боится, что «дорого».</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Низкая цена притягивает тех, кто торгуется и не делает, и отпугивает тех, кто готов платить за результат. Аудитория складывается такая, которой потом не продать ничего дороже.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Неуверенность. «Пока не научусь объяснять, ни одна цена не будет правильной».</span></div></div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Возражения и как я их снимаю</h3><span class="fold-hint">10 штук, раскрыть</span></summary><div class="fold-body">
+<p class="text">Мой принцип из базы: возражение это не фраза, которую надо «закрыть», а начало исследования. Поэтому в каждом пункте сначала, что человек реально имеет в виду, потом что я делаю.</p>
+<div class="table-wrap">
+<table>
+  <tr><th>Говорит</th><th>Имеет в виду</th><th>Что делаю</th></tr>
+  <tr><td>«У меня слишком мало подписчиков для какой-то системы»</td><td>«Мне рано, я ещё не доросла»</td><td>Возвращаю к активам: не подписчики, а охваты, старые клиентки, заявки. У меня был запуск на 600 тысяч при охватах 500. При маленьких активах стратегия одна: глубже монетизировать каждого, кто уже есть, и параллельно растить вход.</td></tr>
+  <tr><td>«Дорого»</td><td>Один из семи вариантов: не вижу ценность, не верю, что окупится, не верю в себя, не понимаю, за что плачу</td><td>Не предлагаю скидку. Спрашиваю: что именно должно измениться после нашей работы и сколько это стоит для тебя. Если окупаемость не видна, значит, я плохо объяснила. Если реально нет денег сейчас, честно отпускаю и даю бесплатный шаг.</td></tr>
+  <tr><td>«Я уже была у продюсера, не сработало»</td><td>«Я больше никому не верю»</td><td>Не спорю. Разбираю, что именно делали, и обычно это был запуск по шаблону без учёта её активов. Показываю разницу: я не делаю за неё, я строю систему, которую она потом ведёт сама. И не беру процент с «миллиона», который не обещаю.</td></tr>
+  <tr><td>«Мне надо подумать»</td><td>«Что-то осталось непонятным, и я не могу сказать что»</td><td>Спрашиваю прямо, что именно непонятно: формат, срок, результат, я сама. Дедлайн не ставлю первым. Сначала нахожу незакрытый риск.</td></tr>
+  <tr><td>«Я и так всё это знаю»</td><td>«У меня три непройденных курса, не продавай мне ещё информацию»</td><td>Согласна, информации у неё больше, чем нужно. Продаю не знания, а решение: что продавать, кому, через какую механику и в каком порядке в следующие 30 дней. И первое действие она делает прямо на созвоне.</td></tr>
+  <tr><td>«Я не хочу продавать агрессивно»</td><td>«Я боюсь стать инфоцыганкой и потерять любовь аудитории»</td><td>Моя позиция совпадает с её: ничего не обещаем, чего не можем выполнить. Продажа это понятное предложение понятному человеку. Закрытые продажи через разборы и анкеты как раз позволяют не продавать ежедневно в блоге.</td></tr>
+  <tr><td>«Моя ниша не продаётся системно, у меня всё через доверие»</td><td>«Мне страшно, что это не сработает именно у меня»</td><td>Два года в мягких нишах: энергокоучинг, психология отношений, аудиопрактики. Там продаётся всё, если продавать изменение, а не программу.</td></tr>
+  <tr><td>«У меня нет времени ещё и на это»</td><td>«Я боюсь, что это ещё одна нагрузка, а не разгрузка»</td><td>Первое, что мы делаем, это убираем лишнее. Половина её контента не выполняет никакой функции. Система должна занимать меньше времени, чем сейчас, иначе это не система.</td></tr>
+  <tr><td>«А вы сами-то ведёте блог?»</td><td>«Почему я должна верить человеку без витрины»</td><td>Честно: блог начала недавно, шесть лет работала за кулисами, в том числе в проекте на 7,5 млн. Мои кейсы это продажи ×3,5, 10 млн за месяц и год продаж одной базе. И мой блог сейчас строится по той же системе, которую я предлагаю ей, на её глазах.</td></tr>
+  <tr><td>«Сначала накоплю, потом приду»</td><td>«Мне нужен безопасный путь, а не прыжок»</td><td>Даю постепенный путь: сначала консультация за 9.000 с планом на месяц, который окупается с одной продажи. Сопровождение потом и только если план сработал.</td></tr>
+</table>
+</div>
+</div></details>
+<!-- ============ 04 ============ -->
+<h2 class="section-heading" id="s04"><span>04</span>Сегмент 2: проект, который <em>упёрся в потолок</em> запусков</h2>
+
+<details class="fold"><summary><h3 class="sub-heading">Боли по убыванию</h3><span class="fold-hint">12 монологов, раскрыть</span></summary><div class="fold-body">
+<p class="text">Этот сегмент я знаю изнутри лучше, чем первый: я несколько лет сижу внутри таких проектов и слышу это на планёрках. Монологи от лица эксперта-владелицы, которая говорит это подруге-предпринимательнице, а не команде.</p>
+
+<div class="quote"><span class="quote-label"><span>1.</span>Каждый запуск как лотерея</span>«Ты знаешь, что мы сейчас делаем? Мы сидим с продюсером и гадаем. Прошлый запуск сделал четыре миллиона, позапрошлый два с половиной, до этого шесть. И никто, вот вообще никто в команде не может мне сказать, почему. Ну то есть все говорят: прогрев, охваты, сезон. А я спрашиваю: сколько будет в ноябре? И тишина. Я владелица бизнеса, у меня семь человек в команде, и я не знаю, сколько я заработаю через месяц. Это вообще бизнес?»</div>
+
+<div class="quote"><span class="quote-label"><span>2.</span>Между запусками ноль, и я живу от выручки до выручки</span>«После запуска у нас месяц-полтора вообще ничего не приходит. То есть ноль. Зарплаты платятся из того, что собрали, и я каждый раз молюсь, чтобы хватило до следующего. У меня есть аудитория сто тысяч, у меня есть база из тех, кто покупал, и между запусками они просто... лежат. Я не умею с них зарабатывать, пока не открою продажи. Это как держать ресторан, который работает две недели в квартал».</div>
+
+<div class="quote"><span class="quote-label"><span>3.</span>Выгораю на прогреве и после него ненавижу телефон</span>«Три недели я живу в сторис. Двадцать сторис в день, эфиры, рассылки, «девочки, осталось два дня». Я к концу ненавижу свой продукт, свою аудиторию и себя. Потом неделя продаж, и я выжата. И потом три недели я не могу открыть инст физически. А аудитория за эти три недели остывает, и всё по новой. Я пять лет так живу, и каждый раз думаю: это последний».</div>
+
+<div class="quote"><span class="quote-label"><span>4.</span>Оборот красивый, а прибыли нет</span>«Я сказала на конференции «запуск на пять миллионов», и все такие «вау». А ты знаешь, сколько из них осталось? Команда, таргет полтора, продюсер двадцать процентов, кураторы, платформа, налоги. Восемьсот тысяч. За четыре месяца работы. Это двести в месяц, я столько на консультациях зарабатывала пять лет назад одна. Я боюсь это считать, если честно, потому что если я посчитаю, окажется, что весь этот бизнес кормит всех, кроме меня».</div>
+
+<div class="quote"><span class="quote-label"><span>5.</span>Продюсер говорит «надо больше греть», и это весь его ответ</span>«Я спрашиваю: что мы делаем не так? И мне отвечают: нужно больше болей в сторис, больше ажиотажа, добавим бонус. Это всё, что они умеют. Ни один человек в моей команде не умеет посмотреть на цифры и сказать: вот здесь у нас отваливается, вот здесь мы теряем. Они делают контент. Красивый. А деньги это как будто не их зона, это «как пойдёт»».</div>
+
+<div class="quote"><span class="quote-label"><span>6.</span>Сделали большой продукт, и он не продался как надо</span>«Мы готовились четыре месяца. Фильм сняли к открытию, презентацию, методологию переписали. Я вложила в продакшн столько, сколько раньше стоил весь запуск. И продажи были... ну нормальные. Не провал, но не то, ради чего четыре месяца. И самое обидное, что я до сих пор не понимаю, почему: продукт был лучше всех прошлых. Люди просто не поняли, что это и зачем».</div>
+
+<div class="quote"><span class="quote-label"><span>7.</span>База лежит мёртвым грузом</span>«У меня в GetCourse восемь тысяч человек, которые что-то покупали. Восемь тысяч! И мы им пишем только когда открываем продажи. Они уже привыкли: от неё письмо, значит опять продаёт. Открываемость тридцать процентов, покупают полтора. Я понимаю, что это золото, которое я не умею доставать, но как с ними работать, кроме «купите снова», я не знаю».</div>
+
+<div class="quote"><span class="quote-label"><span>8.</span>Отдел продаж дожимает всех одинаково</span>«Пришли две девочки-менеджера, у них скрипт, они пишут «Анна, добрый день, вы заполняли анкету, у вас остались вопросы?» всем подряд. Одной, которая готова, и той, которая зашла случайно. Конверсия три процента, я плачу им оклад, и половина базы уже отправила нас в спам. А я понимаю, что там есть люди, которые купили бы, если бы с ними поговорили по-человечески».</div>
+
+<div class="quote"><span class="quote-label"><span>9.</span>Охваты падают, и я не знаю, строить ли дальше на инсте</span>«У меня охваты в сторис упали вдвое за год. Реклама запрещена, телеграм работает через раз, в MAX никого. Я построила бизнес на площадке, которая мне не принадлежит и которую могут выключить. И я не понимаю, куда переносить сто тысяч человек и как».</div>
+
+<div class="quote"><span class="quote-label"><span>10.</span>Нужен новый трафик, а он дорожает каждый месяц</span>«Лид стал стоить в два раза дороже, чем год назад. Мы закупаем, а окупаемость на грани. Продюсер говорит: без нового трафика запуск не сделать. И я каждый запуск сначала трачу миллион, чтобы собрать, а потом надеюсь отбить. Это как казино, где я каждый раз ставлю всё».</div>
+
+<div class="quote"><span class="quote-label"><span>11.</span>Я сама не могу уйти из операционки</span>«Я эксперт. Я должна записывать уроки и вести людей. А я согласовываю креативы, читаю скрипты менеджеров, правлю лендинг в два ночи. Если я отойду, всё развалится, потому что система держится на мне, а не на процессе. Я хотела бизнес, а получила вторую смену».</div>
+
+<div class="quote"><span class="quote-label"><span>12.</span>Боюсь менять то, что хоть как-то работает</span>«Мне все говорят: попробуй подписку, попробуй закрытые продажи, попробуй без вебинара. А я боюсь. Потому что вебинар даёт хоть какие-то деньги, а новое это риск. И я три года делаю одно и то же, с каждым разом чуть хуже, потому что страшно отпустить то, что ещё дышит».</div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Желания</h3><span class="fold-hint">явные, раскрыть</span></summary><div class="fold-body">
+<ul class="guide-list">
+  <li>«Хочу знать в начале месяца, сколько будет в конце». Предсказуемость как главная валюта.</li>
+  <li>«Хочу зарабатывать между запусками, а не только в окно продаж».</li>
+  <li>«Хочу, чтобы кто-то посмотрел на мои цифры и сказал, где именно мы теряем».</li>
+  <li>«Хочу запускаться без трёхнедельного прогрева, от которого я умираю».</li>
+  <li>«Хочу, чтобы база работала: подписка, линейка, повторные продажи».</li>
+  <li>«Хочу выйти из операционки и быть экспертом, а не директором».</li>
+  <li>«Хочу понимать прибыль, а не оборот».</li>
+  <li>«Хочу человека, который думает про деньги, а не про сторис».</li>
+  <li>«Хочу не зависеть от одной площадки и от закупки трафика».</li>
+  <li>«Хочу, чтобы отдел продаж работал с людьми, а не со скриптом».</li>
+</ul>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Тайные желания</h3><span class="fold-hint">о чём думает, но не говорит, раскрыть</span></summary><div class="fold-body">
+<ul class="guide-list">
+  <li><strong>Хочу уволить продюсера и не чувствовать себя предательницей.</strong> Он был с ней с начала, но он умеет только одно.</li>
+  <li><strong>Хочу перестать быть «большой» и просто зарабатывать.</strong> Статус «запуск на пять миллионов» давит сильнее, чем помогает. Втайне завидует коллеге, которая делает миллион в месяц тихо и без команды.</li>
+  <li><strong>Хочу, чтобы кто-то взял коммерческую часть целиком.</strong> Не «посоветовал», а отвечал за деньги вместе с ней.</li>
+  <li><strong>Хочу признать, что последний продукт был ошибкой,</strong> и чтобы кто-то сказал «это не ты, это упаковка», и был прав.</li>
+  <li><strong>Хочу отдохнуть три месяца и чтобы бизнес не умер.</strong> Пока это звучит как фантазия.</li>
+  <li><strong>Хочу показать цифры честно и не стыдиться,</strong> что прибыль в пять раз меньше оборота.</li>
+</ul>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Страхи: о чём ураган мыслей по вечерам</h3><span class="fold-hint">10 монологов, раскрыть</span></summary><div class="fold-body">
+
+<div class="quote"><span class="quote-label"><span>1.</span>Следующий запуск провалится, и я не вытяну зарплаты</span>«У меня семь человек. Если ноябрь даст два миллиона вместо четырёх, я в минусе уже в декабре. Я лежу и считаю, кого сокращать первым, и ненавижу себя за эти мысли».</div>
+
+<div class="quote"><span class="quote-label"><span>2.</span>Мой пик уже позади</span>«Самый большой запуск был два года назад. С тех пор каждый чуть меньше. Что, если это не сезон, а просто всё, я выдохлась, аудитория устала, и дальше только вниз?»</div>
+
+<div class="quote"><span class="quote-label"><span>3.</span>Я не бизнес, я дорогая самозанятая с командой</span>«Если посчитать мою прибыль на час, я зарабатываю меньше, чем мой же куратор. Вся эта «школа» это я, которая кормит десять человек. И если я заболею на месяц, всё встанет».</div>
+
+<div class="quote"><span class="quote-label"><span>4.</span>Площадку выключат, и сто тысяч человек исчезнут</span>«Инста уже под запретом рекламы, телеграм ограничивают. Я просыпаюсь и проверяю, работает ли. У меня нет плана Б, и я боюсь об этом думать».</div>
+
+<div class="quote"><span class="quote-label"><span>5.</span>Меня разоблачат как «инфоцыганку»</span>«Готовят закон про курсы. Я ничего не гарантирую, но в старых прогревах были фразы «выйдешь на 300 тысяч». Что, если кто-то их поднимет? Я не хочу быть той, про кого снимут разоблачение».</div>
+
+<div class="quote"><span class="quote-label"><span>6.</span>Я потрачу ещё полгода на новый продукт, и он снова не зайдёт</span>«Прошлый мы делали четыре месяца, и он не отбился. Я боюсь делать следующий, потому что цена ошибки это уже не деньги, это полгода жизни и команда, которая ждёт зарплату».</div>
+
+<div class="quote"><span class="quote-label"><span>7.</span>Я не смогу остановиться</span>«Я хотела уехать на месяц, и не смогла, потому что без меня не идут продажи. Боюсь, что это навсегда: пока я не в сторис, денег нет. Я заложница собственного лица».</div>
+
+<div class="quote"><span class="quote-label"><span>8.</span>Новый маркетолог окажется таким же, как прошлый</span>«Я уже меняла команду дважды. Все красиво презентуют и потом делают те же прогревы. Боюсь, что проблема не в них, а в том, что я не умею отличить человека, который думает про деньги, от того, кто делает контент».</div>
+
+<div class="quote"><span class="quote-label"><span>9.</span>Аудитория устала от меня</span>«Открываемость падает, реакций меньше, на эфиры приходит треть от прошлого года. Я боюсь, что я им надоела. Что они видели все мои приёмы и больше не верят».</div>
+
+<div class="quote"><span class="quote-label"><span>10.</span>Я никогда не узнаю реальную прибыль</span>«Я боюсь сесть и посчитать по-честному. Потому что если окажется, что за год я заработала как хороший найм, я не знаю, зачем всё это было».</div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Последствия, если ничего не менять</h3><span class="fold-hint">12 карточек: сейчас, через 2–3 года, эмоции</span></summary><div class="fold-body">
+
+<div class="scenario-card"><div class="scenario-card__num">1 · ЗАПУСК КАК ЛОТЕРЕЯ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Решения принимаются на ощущениях: «добавим бонус», «усилим боли». Ни одной гипотезы, которую можно проверить. Каждый цикл учит ничему.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Рынок станет дороже и осторожнее, разброс между запусками вырастет, и однажды «плохой» запуск совпадёт с кассовым разрывом.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Беспомощность владельца. «Это вообще бизнес?»</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">2 · НОЛЬ МЕЖДУ ЗАПУСКАМИ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Два месяца из трёх бизнес живёт на остатки. База из тысяч покупателей ничего не приносит, потому что нет линейки и нет поводов.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Конкуренты с подпиской и линейкой получат ровный доход и смогут покупать трафик в спокойные месяцы, когда он дешевле. Она будет покупать в пик, когда дороже всего.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Тревога владельца «хватит ли до следующего».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">3 · ВЫГОРАНИЕ НА ПРОГРЕВЕ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Три недели ада, неделя денег, три недели тишины. Аудитория остывает ровно тогда, когда она не может на неё смотреть.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Либо срыв и уход из ниши, либо снижение качества до уровня «ещё один прогрев по шаблону», который аудитория уже узнаёт и пропускает.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Ненависть к собственному продукту. «Каждый раз последний».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">4 · ОБОРОТ БЕЗ ПРИБЫЛИ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Решения по команде, трафику и продакшну принимаются по обороту, поэтому расходы растут быстрее прибыли. Она работает на всех, кроме себя.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">При падении рынка на 20% такая модель уходит в минус первой, потому что в ней нет запаса. Красивый оборот не спасает от кассового разрыва.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Страх посчитать. Стыд перед собой.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">5 · «НАДО БОЛЬШЕ ГРЕТЬ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">В команде нет человека, который отвечает за деньги. Все отвечают за контент. Поэтому диагноз всегда один и тот же, и он всегда неправильный.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Прогрев как формат умирает первым: сторис перегреты, внимание дефицит, продажи «в лоб» в инсте запрещены. Команда, которая умеет только греть, останется без инструмента.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Одиночество руководителя. «Деньги это как будто ничья зона».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">6 · БОЛЬШОЙ ПРОДУКТ НЕ ЗАШЁЛ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Четыре месяца и продакшн-бюджет потрачены до того, как рынок дал первый сигнал. Непонятно, что чинить: продукт, цену или упаковку.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Каждая следующая ошибка дороже, потому что команда больше и ожидания выше. Один такой запуск в плохой год может закрыть проект.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Обида. «Продукт был лучше всех прошлых».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">7 · МЁРТВАЯ БАЗА</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Тысячи людей, которые уже платили, получают письма только с «купите снова» и постепенно отписываются. Самый дешёвый источник денег превращается в спам-лист.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Трафик дорожает, новых купить всё сложнее, а старых уже сожгли. Это худшая комбинация из возможных: ни притока, ни базы.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">«Золото, которое я не умею доставать».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">8 · ОТДЕЛ ПРОДАЖ ПО СКРИПТУ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Менеджеры дожимают всех одинаково, конверсия низкая, оклады платятся, половина базы в спаме. Тёплые люди уходят из-за того, что с ними говорят как с холодными.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Покупатель будет ждать персонального касания по умолчанию, потому что ИИ даст это всем. Шаблонный отдел продаж станет минусом, а не плюсом.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Досада. «Там есть люди, которые купили бы».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">9 · ПЛОЩАДКА, КОТОРАЯ НЕ ПРИНАДЛЕЖИТ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Весь бизнес живёт в аккаунте, где реклама запрещена, и в мессенджере, который работает через раз. Охваты вдвое ниже, чем год назад.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Площадок меньше и они нестабильнее. Выживают те, у кого база в своей CRM, с телефонами и согласиями, и несколько входов. Это надо строить сейчас, пока есть что переносить.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Страх, который не хочется думать. «У меня нет плана Б».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">10 · ТРАФИК ДОРОЖАЕТ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Каждый запуск начинается с миллиона на закупку и надежды отбить. Окупаемость на грани, и один неудачный креатив ломает экономику.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Лид подорожает ещё, а конверсия холодного трафика упадёт, потому что покупатель осторожнее. Модель «купил трафик, прогрел, продал» перестанет сходиться для среднего чека.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">«Казино, где я каждый раз ставлю всё».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">11 · ЗАЛОЖНИЦА ОПЕРАЦИОНКИ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Эксперт согласовывает креативы в два ночи вместо того, чтобы делать то, за что платят. Система держится на ней, а не на процессах.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Либо болезнь, либо выгорание, и бизнес, который держится на одном человеке, останавливается на месяц. С командой на окладах это кассовый разрыв.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">«Хотела бизнес, получила вторую смену».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">12 · СТРАШНО МЕНЯТЬ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Сейчас.</span><span class="scenario-card__point-text">Три года одной и той же механики, каждый раз чуть хуже. Новое не пробуется, потому что старое «ещё дышит».</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Через 2–3 года.</span><span class="scenario-card__point-text">Самый дорогой провал тот, который слишком долго не проверяли. Пока она боится теста на 100 тысяч, рынок уедет, и переделывать придётся всё сразу, в кризис, без денег.</span></div>
+<div class="scenario-card__point"><span class="scenario-card__point-label">Эмоции.</span><span class="scenario-card__point-text">Страх отпустить. «Это ещё дышит».</span></div></div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Возражения и как я их снимаю</h3><span class="fold-hint">8 штук, раскрыть</span></summary><div class="fold-body">
+<div class="table-wrap">
+<table>
+  <tr><th>Говорит</th><th>Имеет в виду</th><th>Что делаю</th></tr>
+  <tr><td>«У нас уже есть продюсер и маркетолог»</td><td>«Зачем мне ещё один человек, который будет делать то же самое»</td><td>Я не делаю контент и не заменяю команду. Я отвечаю за одно: где в вашей воронке теряются деньги и какая одна гипотеза в следующем цикле их вернёт. Это зона, которой сейчас в команде нет ни у кого.</td></tr>
+  <tr><td>«Мы пробовали, у нас специфическая аудитория»</td><td>«Я боюсь, что вы предложите шаблон»</td><td>Шаблона не будет. Первые две недели это диагностика: активы, цифры по этапам, история запусков, продукт, команда. Решение выбирается из данных, а не из моей любимой схемы. У одного проекта это будет подписка, у другого закрытые продажи, у третьего переупаковка.</td></tr>
+  <tr><td>«Покажите кейсы с именами»</td><td>«Я хочу понять, что вы реально работали с большими проектами»</td><td>Имена под NDA, и это я считаю плюсом: с вами будет так же. Цифры открытые: ×3,5 за месяц после переупаковки, около 10 млн за первый месяц нового направления, год продаж одной базе от миллиона в месяц. Могу разобрать механику каждого.</td></tr>
+  <tr><td>«Дорого для консультанта»</td><td>«Я не вижу, как это окупится»</td><td>Считаем вместе: одна найденная дыра в воронке на запуске в 3 млн это 300–600 тысяч. Сопровождение стоит 40. Если за месяц диагностики я не нахожу, где лежат деньги, мы расходимся.</td></tr>
+  <tr><td>«Нет времени, у нас запуск»</td><td>«Не хочу менять колёса на ходу»</td><td>И не надо. Запуск это лучшее время для диагностики: я смотрю цифры по этапам в реальном времени и к следующему циклу у нас есть первая гипотеза. Менять механику на ходу я сама запрещаю.</td></tr>
+  <tr><td>«Мы не хотим отказываться от вебинаров»</td><td>«Это единственное, что приносит деньги, не трогайте»</td><td>Не трогаю. Вебинар остаётся, если он работает. Вопрос в том, что происходит между вебинарами и с теми, кто не купил. Там обычно лежит второй запуск, который никто не собирает.</td></tr>
+  <tr><td>«А вы сами что ведёте?»</td><td>«Почему я должна верить человеку без публичного блога»</td><td>Шесть лет за кулисами, последние годы внутри проекта на 7,5 млн подписчиков, где с меня сняли операционку и проект вышел на 10 млн в месяц. Я маркетолог, а не блогер. Но блог у меня теперь есть, и он собирается по той же системе.</td></tr>
+  <tr><td>«Давайте после запуска»</td><td>«Мне страшно принимать решение сейчас»</td><td>Хорошо. Фиксирую одну вещь: какие три цифры вы посмотрите после запуска, чтобы понять, был ли он успешным. Если после запуска ответ «не знаю», мы начинаем с этого.</td></tr>
+</table>
+</div>
+</div></details>
+
+<div class="highlight"><strong>Документ дописывается.</strong> Разделы 05–12 (общие тайные желания и триггеры, «чего хотят вместо» и точка Б, ложные решения с обломом, возражения на созвоне, моя тема и ИИ, позиционирование, план проверки, источники) появятся на этой же странице в ближайшие часы.</div>
+
+</div>
+
+<footer class="footer">
+  © 2026 · maysoulme · Личная работа. Материалы не для передачи третьим лицам.
+  <p class="tiny">Внутренний рабочий документ. Гипотезы требуют проверки на живых людях.</p>
+</footer>
+
+</body>
+</html>
